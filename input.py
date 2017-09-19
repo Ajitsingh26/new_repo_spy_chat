@@ -36,21 +36,27 @@ while True:
 
                         # Ask for the age of the spy
                         while True:
-                            spy.age = raw_input("Please enter your age:-")
-
-                            #when age of spy is not blank ,greater than 0
-                            if len(spy.age) > 0:
+                            try:
+                                spy.age = int(raw_input("Please enter your age:-"))
+                            except:
+                                print colored("Age must be in positive Integer",'red')
+                                break;
+                        #when age of spy is not blank ,greater than 0
+                            if (spy.age) > 0:
                                 # raw input always gives a string to typecast age to int.
                                 spy.age = int(spy.age)
                                 #when age of spy is between 18 and 50
                                 if 18 < spy.age < 50:
                                    # Ask for spy_rating
                                     while True:
-                                        spy.rating = raw_input("Please enter your spy rating:- ")
+                                        try:
+                                            spy.rating = float(raw_input("Please enter your spy rating:- "))
+                                        except:
+                                            print colored("Plz enter proper +ve float rating.",'red')
+                                            break;
                                         #when rating is greater than 0 then
-                                        if len(spy.rating) > 0:
+                                        if (spy.rating) > 0:
                                             # raw input always gives a string to typecast rating to float.
-                                            spy.rating = float(spy.rating)
 
                                             # conditions to pass comments according to the spy_rating.
                                             if spy.rating > 4.5:
